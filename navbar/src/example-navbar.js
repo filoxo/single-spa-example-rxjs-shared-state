@@ -1,8 +1,8 @@
 import singleSpaSvelte from "single-spa-svelte";
-import App from "./App.svelte";
+import Navbar from "./Navbar.svelte";
 
 const svelteLifecycles = singleSpaSvelte({
-  component: App,
+  component: Navbar,
 });
 
 export const { bootstrap, mount, unmount } = svelteLifecycles;
