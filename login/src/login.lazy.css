@@ -1,0 +1,91 @@
+.login-form {
+  border: 1px solid crimson;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto 0;
+  max-width: 250px;
+  padding: 1rem;
+  width: 100%;
+}
+
+.login-form input {
+  border: 1px solid black;
+  border-radius: 3px;
+  margin: 0.5rem 0 1rem;
+  padding: 0.5rem;
+}
+
+.login-form .submit {
+  background: crimson;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+}
+
+.login-error {
+  background: crimson;
+  color: white;
+  margin: 1rem -1rem 0;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.loader {
+  display: inline-block;
+  position: relative;
+  width: 38px;
+  height: 8px;
+}
+
+/* Modified from https://loading.io/css/ */
+.loader div {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.loader div:nth-child(1) {
+  left: 4px;
+  animation: loader1 0.6s infinite;
+}
+.loader div:nth-child(2) {
+  left: 4px;
+  animation: loader2 0.6s infinite;
+}
+.loader div:nth-child(3) {
+  left: 16px;
+  animation: loader2 0.6s infinite;
+}
+.loader div:nth-child(4) {
+  left: 28px;
+  animation: loader3 0.6s infinite;
+}
+@keyframes loader1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes loader3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes loader2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(12px, 0);
+  }
+}
