@@ -17,8 +17,10 @@ const GET_LOGGED_IN = (username, password) =>
     });
     setTimeout(() => {
       if (username === "exampleuser" && password === "examplepassword") {
+        const sessionToken = "abc123def456";
+        localStorage.setItem("sessionToken", sessionToken);
         resolve({
-          sessionToken: "abc123def456",
+          sessionToken,
           error: false,
           pending: false,
         });
