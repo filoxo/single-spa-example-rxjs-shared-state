@@ -29,6 +29,7 @@
     background: crimson;
     color: white;
     padding: 1rem 2rem;
+    text-align: right;
   }
 
   nav :global(a),
