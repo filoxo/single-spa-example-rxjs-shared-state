@@ -52,12 +52,15 @@
 
   <template id="single-spa-layout">
     <single-spa-router>
-      <!-- <nav>
-        <application name="@<%- orgName %>/navbar"></application>
-      </nav> -->
+      <div>
+        <application name="@example/navbar"></application>
+      </div>
       <main>
-        <route default>
-          <application name="@single-spa/welcome"></application>
+        <route path="home" >
+          <application name="@example/home"></application>
+        </route>
+        <route path="login">
+          <application name="@example/login"></application>
         </route>
       </main>
     </single-spa-router>
