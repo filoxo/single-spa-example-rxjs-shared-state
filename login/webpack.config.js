@@ -9,10 +9,10 @@ const mergeRulesByTestMatch = mergeWithRules({
       exclude: "replace",
       use: {
         loader: "match",
-        options: "replace"
-      }
-    }
-  }
+        options: "replace",
+      },
+    },
+  },
 });
 
 module.exports = (webpackConfigEnv, argv) => {
@@ -30,7 +30,7 @@ module.exports = (webpackConfigEnv, argv) => {
         {
           test: /\.css$/i,
           include: undefined,
-          exclude: /\.lazy\.css$/i
+          exclude: /\.lazy\.css$/i,
         },
         {
           test: /\.lazy\.css$/i,
@@ -38,8 +38,8 @@ module.exports = (webpackConfigEnv, argv) => {
             { loader: "style-loader", options: { injectType: "lazyStyleTag" } },
             "css-loader",
           ],
-        }
-      ]
+        },
+      ],
     },
     devServer: {
       port: 5002,
