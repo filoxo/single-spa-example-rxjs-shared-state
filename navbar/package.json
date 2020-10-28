@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "single-spa-svelte": "^2.0.0",
-    "sirv-cli": "^0.4.4"
+    "sirv-cli": "^0.4.4",
+    "svelte-routing": "^1.4.2"
   }
 }
