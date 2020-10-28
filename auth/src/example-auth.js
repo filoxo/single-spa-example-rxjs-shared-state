@@ -32,7 +32,7 @@ const GET_LOGGED_IN = (username, password) =>
           pending: false,
         });
       }
-    }, 4000);
+    }, 2500);
   });
 
 export function login(username, password) {
