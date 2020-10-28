@@ -27,8 +27,8 @@
     "concurrently": "^5.0.1",
     "cross-env": "^7.0.2",
     "eslint": "^6.7.2",
-    "eslint-config-prettier": "^6.7.0",
     "eslint-config-important-stuff": "^1.1.0",
+    "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-prettier": "^3.1.1",
     "husky": "^3.1.0",
     "identity-obj-proxy": "^3.0.0",
@@ -38,10 +38,12 @@
     "pretty-quick": "^2.0.1",
     "systemjs-webpack-interop": "^2.1.2",
     "webpack": "^4.41.2",
-    "webpack-config-single-spa": "^1.0.7",
-    "webpack-merge": "^4.2.2",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
+    "webpack-config-single-spa": "^1.0.7",
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "rxjs": "^6.6.3"
+  }
 }
