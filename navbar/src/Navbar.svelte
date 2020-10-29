@@ -32,7 +32,6 @@
     text-align: right;
   }
 
-  nav :global(a),
   nav .action {
     background: transparent;
     border: 1px solid transparent;
@@ -46,14 +45,6 @@
   nav .action:hover,
   nav .action:focus {
     background: rgba(0, 0, 0, 0.3);
-  }
-
-  nav :global(a:focus),
-  nav :global(a:hover) {
-    text-decoration: underline;
-  }
-  nav :global(a[aria-current]) {
-    border-color: white;
   }
 </style>
 
