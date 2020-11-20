@@ -1,27 +1,5 @@
 <script>
-  import { onDestroy, onMount } from 'svelte';
-  import { Router, navigate } from 'svelte-routing';
-  import { auth$ as auth, logout } from '@example/auth';
-
-  const ROUTES = {
-    LOGIN: '/login',
-    HOME: '/home',
-  };
-
-  let sub;
-  onMount(() => {
-    sub = auth.subscribe(({ sessionToken }) => {
-      const needsLogin = !sessionToken;
-      if (needsLogin) navigate(ROUTES.LOGIN);
-      else if (!needsLogin && window.location.pathname === ROUTES.LOGIN) {
-        navigate(ROUTES.HOME);
-      }
-    });
-  });
-
-  onDestroy(() => {
-    sub.unsubscribe();
-  });
+  import { logout } from '@example/auth';
 </script>
 
 <style>
@@ -49,13 +27,6 @@
 </style>
 
 <nav>
-  <Router>
-    {#if $auth.sessionToken}
-      <span>Welcome!</span>
-      <button
-        class="action"
-        type="button"
-        on:click|once={logout}>Logout</button>
-    {:else}<span>Login</span>{/if}
-  </Router>
+  <span>Welcome!</span>
+  <button class="action" type="button" on:click|once={logout}>Logout</button>
 </nav>
