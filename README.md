@@ -1,19 +1,21 @@
 # single-spa example: Rxjs shared state
 
+In this example, I hope to showcase how to use a utility module that shares application state across multiple single-spa applications and multiple frameworks.
+
 This example consists of:
 
 - root-config: shared HTML layout for microfrontends
 - navbar: basic Svelte application with navigation responsibilities
 - home: basic React application for logged-in users
 - login: basic React application for logged-out users
-- auth: uility module, using Rxjs and plain JavaScript
+- auth: utility module, using Rxjs and plain JavaScript
 
 ### Setup
 
 - `git clone git@github.com:filoxo/single-spa-example-rxjs-shared-state.git`
 - run `yarn setup`
 
-### Running
+### Running locally
 
 - run `yarn start`
   - root-config runs on port 9000
@@ -24,9 +26,7 @@ This example consists of:
 - go to http://localhost:9000/
 - celebrate good times 🎉
 
-## Notes
-
-In this example, I hope to showcase how to use a utility module that shares application state across multiple single-spa applications and multiple frameworks.
+## Details
 
 ### Login and guards
 
@@ -45,8 +45,28 @@ Log out of the system using the "Logout" button in the navbar. Once again, after
 
 ## Additional notes
 
-- These are implemented within the same repo **for illustration purposes**. In an organizational setting, each of the modules should be in its own repo.
-- Utility modules are great for [sharing common logic](https://single-spa.js.org/docs/module-types/#utility-modules-share-common-logic) in one centralized place
-- [Utility modules have lots of usecases, not just authentication](https://single-spa.js.org/docs/recommended-setup/#utility-modules-styleguide-api-etc)
-- Using Rxjs is just [one of many options for sharing UI state](https://single-spa.js.org/docs/recommended-setup/#ui-state)
-- Rxjs has a high learning curve, but is extremely powerful when used correctly
+These are implemented within the same repo **for illustration purposes**. In an organizational setting, each of the modules should be in its own repo.
+
+### Utility module?
+
+[Utility modules have lots of use cases](https://single-spa.js.org/docs/recommended-setup/#utility-modules-styleguide-api-etc), not just authentication, and are great for [sharing common logic](https://single-spa.js.org/docs/module-types/#utility-modules-share-common-logic) in one centralized place.
+
+### Why Rxjs?
+
+Preference. I think Rxjs is extremely powerful when leveraged correctly, even though it has a high learning curve. However using Rxjs is just [one of many options for sharing UI state](https://single-spa.js.org/docs/faq/#how-can-i-share-application-state-between-applications)
+
+### Why wouldn't I do this for \*all\* of my applications' state?
+
+By doing so, you introduce:
+
+- tighter coupling between applications, which is a bad practice in a microservices environment
+- potential for bugs (eg. two apps modifying the same state at the same time)
+- potential performance issues due to re-renders of top-level components
+
+See also ["How can I share application state between applications?"](https://single-spa.js.org/docs/faq/#how-can-i-share-application-state-between-applications) and ["Recommended Setup: UI State"](https://single-spa.js.org/docs/recommended-setup/#ui-state) on the single-spa documentation.
+
+### Why not do the auth check inside of the root-config?
+
+Definitely could be done! The implementation of _how auth happens_ is **not the focus** of this repo.
+
+For an example of how to do that, check out the [`check-auth-in-root-config` branch](https://github.com/filoxo/single-spa-example-rxjs-shared-state/tree/check-auth-in-root-config).
