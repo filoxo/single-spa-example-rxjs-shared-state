@@ -83,6 +83,7 @@
 </head>
 <body>
   <script>
+    System.import('@example/auth'); // Load auth earlier for a slight perf improvement
     System.import('@example/root-config');
   </script>
   <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
