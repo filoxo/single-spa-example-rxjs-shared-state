@@ -64,22 +64,6 @@
   <script src="https://cdn.jsdelivr.net/npm/systemjs@6.7.0/dist/system.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/systemjs@6.7.0/dist/extras/amd.min.js"></script>
   <% } %>
-
-  <template id="single-spa-layout">
-    <single-spa-router>
-      <div>
-        <application name="@example/navbar"></application>
-      </div>
-      <main>
-        <route path="home" >
-          <application name="@example/home"></application>
-        </route>
-        <route path="login">
-          <application name="@example/login"></application>
-        </route>
-      </main>
-    </single-spa-router>
-  </template>
 </head>
 <body>
   <script>
