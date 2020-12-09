@@ -41,6 +41,18 @@
       }
     }
   </script>
+  <% } else { %>
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "@example/root-config": "/example-root-config.js",
+          "@example/navbar": "/navbar/example-navbar.js",
+          "@example/home": "/home/example-home.js",
+          "@example/login": "/login/example-login.js",
+          "@example/auth": "/auth/example-auth.js"
+        }
+      }
+    </script>
   <% } %>
 
   <% if (isLocal) { %>
