@@ -13,7 +13,7 @@ This example consists of:
 ### Setup
 
 - `git clone git@github.com:filoxo/single-spa-example-rxjs-shared-state.git`
-- run `yarn setup`
+- run `yarn bootstrap`
 
 ### Running locally
 
