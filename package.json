@@ -3,26 +3,11 @@
   "version": "1.0.0",
   "description": "single-spa example that shows how to use a utility module to share some application state across other microfrontends",
   "scripts": {
-    "setup": "run-s install:*",
-    "install:root-config": "yarn install --prefix root-config",
-    "install:auth": "yarn install --prefix auth",
-    "install:navbar": "yarn install --prefix navbar",
-    "install:login": "yarn install --prefix login",
-    "install:home": "yarn install --prefix home",
-    "start": "run-p start:*",
-    "start:root-config": "yarn --cwd root-config start",
-    "start:auth": "yarn --cwd auth start",
-    "start:navbar": "yarn --cwd navbar start",
-    "start:login": "yarn --cwd login start",
-    "start:home": "yarn --cwd home start",
+    "bootstrap": "lerna bootstrap",
+    "start": "lerna run start",
     "prebuild": "rm -rf deploy && mkdir deploy deploy/auth deploy/home deploy/login deploy/navbar",
-    "build": "run-s build:*",
-    "build:root-config": "yarn --cwd root-config build",
-    "build:auth": "yarn --cwd auth build",
-    "build:navbar": "yarn --cwd navbar build",
-    "build:login": "yarn --cwd login build",
-    "build:home": "yarn --cwd home build",
-    "build:cp": "cp root-config/dist/* deploy && cp auth/dist/* deploy/auth && cp home/dist/* deploy/home && cp login/dist/* deploy/login && cp navbar/dist/* deploy/navbar",
+    "build": "lerna run build",
+    "postbuild": "cp packages/root-config/dist/* deploy && cp packages/auth/dist/* deploy/auth && cp packages/home/dist/* deploy/home && cp packages/login/dist/* deploy/login && cp packages/navbar/dist/* deploy/navbar",
     "preserve": "yarn build",
     "serve": "npx serve deploy -s -n -C"
   },
@@ -37,5 +22,8 @@
   "license": "MIT",
   "devDependencies": {
     "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {
+    "lerna": "^3.22.1"
   }
 }
