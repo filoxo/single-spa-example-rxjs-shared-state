@@ -30,16 +30,15 @@ This example consists of:
 
 ## Details
 
+Live demo available at https://single-spa-example-rxjs-shared-state.netlify.app/login
+
 ### Login and guards
 
-After running, you'll see a login page. It simulates a request to log a user into the system. For demo purposes, try the following:
+1. Log in using any credentials to show an error, as expected.
 
-- log in using any dummy credentials. An error will be displayed to give the user feedback.
-- going to the [/home](http://localhost:9000/home) route. It will redirect you back to login since there is no valid user.
+   - Also attempt going to [/home](http://localhost:9000/home) route directly. It will redirect you back to login since there is no valid user.
 
-### With current session
-
-Log in using **exampleuser** with **examplepassword** as the password. Once logged in, you will be redirected to [/home](http://localhost:9000/home). If you try going back to [/login](http://localhost:9000/login) you'll no longer be able to and will be redirected back to home.
+1. Log in using **exampleuser** with **examplepassword** as the password.<br/>Once logged in, you will be redirected to [/home](http://localhost:9000/home). If you try going back to [/login](http://localhost:9000/login) you'll no longer be able to and will be redirected back to home.
 
 ### Logout
 
@@ -47,7 +46,7 @@ Log out of the system using the "Logout" button in the navbar. Once again, after
 
 ## Additional notes
 
-These are implemented within the same repo **for illustration purposes**. In an organizational setting, each of the modules should be in its own repo.
+These are implemented within the same repo using lerna **for illustration purposes**. In an organizational setting, each of the modules should be in its own repo (though [a monorepo setup could still work with the right deployment setup](https://github.com/single-spa/single-spa.js.org/pull/329)).
 
 ### Utility module?
 
