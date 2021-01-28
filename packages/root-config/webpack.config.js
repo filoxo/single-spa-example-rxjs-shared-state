@@ -17,6 +17,8 @@ module.exports = (webpackConfigEnv, argv) => {
     projectName: 'root-config',
     webpackConfigEnv,
     argv,
+    /* The option below would be necessary if I wasn't using mergeWithCustomize to merge the two instances of HtmlWebpackPlugin */
+    // disableHtmlGeneration: true,
   });
 
   const config = merge(defaultConfig, {
