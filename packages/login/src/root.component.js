@@ -36,7 +36,7 @@ export default function Root(props) {
         <label htmlFor="password">Password</label>
         <input id="password" type="password" required />
         <div>
-          <button type="submit" class="submit" disabled={pending}>
+          <button type="submit" className="submit" disabled={pending}>
             {pending ? <Loader /> : "Submit"}
           </button>
         </div>
