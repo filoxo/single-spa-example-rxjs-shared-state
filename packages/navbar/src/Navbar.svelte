@@ -1,11 +1,11 @@
 <script>
-  import { onDestroy, onMount } from 'svelte';
-  import { Router, navigate } from 'svelte-routing';
-  import { auth$ as auth, logout } from '@example/auth';
+  import { onDestroy, onMount } from "svelte";
+  import { Router, navigate } from "svelte-routing";
+  import { auth$ as auth, logout } from "@example/auth";
 
   const ROUTES = {
-    LOGIN: '/login',
-    HOME: '/home',
+    LOGIN: "/login",
+    HOME: "/home",
   };
 
   let sub;
@@ -23,6 +23,16 @@
     sub.unsubscribe();
   });
 </script>
+
+<nav>
+  <Router>
+    {#if $auth.sessionToken}
+      <span>Welcome!</span>
+      <button class="action" type="button" on:click|once={logout}>Logout</button
+      >
+    {:else}<span>Login</span>{/if}
+  </Router>
+</nav>
 
 <style>
   nav {
@@ -47,15 +57,3 @@
     background: rgba(0, 0, 0, 0.3);
   }
 </style>
-
-<nav>
-  <Router>
-    {#if $auth.sessionToken}
-      <span>Welcome!</span>
-      <button
-        class="action"
-        type="button"
-        on:click|once={logout}>Logout</button>
-    {:else}<span>Login</span>{/if}
-  </Router>
-</nav>
