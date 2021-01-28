@@ -33,6 +33,18 @@ module.exports = (webpackConfigEnv, argv) => {
         },
       }),
     ],
+    devServer: {
+      onListening: ({ compiler }) => {
+        const { https, client } = compiler.options.devServer;
+        const { publicPath, filename } = compiler.options.output;
+        const protocol = https ? 'https://' : 'http://';
+        const port = !client.port ? '' : `:${client.port}`;
+        const path = ['', 'auto'].includes(publicPath) ? '/' : publicPath;
+        console.log(
+          `⚡️ single-spa root-config URL: ${protocol}${client.host}${port}${path}${filename}`
+        );
+      },
+    },
   });
 
   return config;
